@@ -1,0 +1,189 @@
+.tasks {
+  &:not(:last-of-type) {
+    /* стили для всех списков (задач) кроме посленего */
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    padding-bottom: 20px;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #64c4ed;
+    border-bottom: 1px solid #f2f2f2;
+
+    &:hover {
+      img {
+        opacity: 0.2;
+      }
+    }
+
+    img {
+      margin-left: 15px;
+      opacity: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__items {
+    margin-top: 30px;
+
+    h2 {
+      font-family: Montserrat;
+      font-weight: 700;
+      font-size: 22px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: #c9d1d3;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      &:hover &-actions {
+        opacity: 1;
+      }
+
+      &-actions {
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.2s linear;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 5px;
+          width: 32px;
+          height: 32px;
+          background-color: lighten(#f4f6f8, 2%);
+          border-radius: 6px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(#f4f6f8, 2%);
+
+            svg {
+              opacity: 0.9;
+            }
+          }
+
+          svg {
+            width: 11px;
+            height: 11px;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      .checkbox {
+        input {
+          display: none;
+        }
+
+        svg {
+          transition: opacity 0.2s ease-in-out;
+
+          path {
+            stroke: #f2f2f2;
+          }
+        }
+
+        input:checked + label {
+          background: #4dd599;
+          border-color: #4dd599;
+
+          svg {
+            opacity: 1;
+            path {
+              stroke: #fff;
+            }
+          }
+        }
+
+        &:hover {
+          label {
+            background-color: #f2f2f2;
+            border-color: #f2f2f2;
+
+            svg {
+              opacity: 1;
+
+              path {
+                stroke: #b3b3b3;
+              }
+            }
+          }
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #e8e8e8;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out,
+            border-color 0.2s ease-in-out;
+
+          svg {
+            opacity: 0;
+          }
+        }
+      }
+
+      p {
+        margin-left: 15px;
+        width: 100%;
+        border: 0;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
+
+    &-new {
+      display: flex;
+      align-items: center;
+      opacity: 0.4;
+      cursor: pointer;
+      transition: opacity 0.2s linear;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      img {
+        margin-left: 4px;
+        width: 16px;
+        height: 16px;
+      }
+
+      span {
+        margin-left: 19px;
+        font-size: 16px;
+      }
+    }
+
+    &-block {
+      .button {
+        margin-top: 15px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
