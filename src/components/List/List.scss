@@ -1,0 +1,72 @@
+.list {
+  $self: &;
+
+  margin-bottom: 30px;
+
+  &__add-button {
+    opacity: 0.4;
+
+    transition: opacity 0.2s linear;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  li {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover #{$self}__remove-icon {
+      /* $self - название класса .list, к ней добавляется __remove-icon; получается .list__remove-icon; и этот класс находится внутри li. При наведении курсора на li (li:hover) к классу .list__remove-icon добавляется opacity: 0.2 */
+      opacity: 0.2;
+    }
+
+    #{$self}__remove-icon {
+      opacity: 0; // скрываем иконку removeSvg
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    span {
+      flex: 1; /* элемент занимает всю возможную ширину, а икнока removeSvg крестика отодвигается в конец вправо */
+      /* если текст не влезает в одну строку, добавляются точки: */
+      text-overflow: ellipsis; /* обрезает какой-либо текст */
+      overflow: hidden; /* обрезает все, что выходит за допустимую ширину */
+      width: 160px;
+      white-space: nowrap; /* не будет перехода на следующую строку */
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    &.active {
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .badge {
+      position: relative;
+      left: 5px;
+    }
+
+    i {
+      margin-right: 8px;
+      display: inline-flex;
+
+      svg {
+        path {
+          fill: #7c7c7c;
+        }
+      }
+    }
+  }
+}
