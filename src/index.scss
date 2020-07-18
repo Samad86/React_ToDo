@@ -1,0 +1,95 @@
+* {
+  // убираем браузерные стили у всех элементов
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: "Roboto", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; // сглаживание шрифтов
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.todo {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100vw - 30px);
+  height: calc(100vh - 100px);
+  transform: translate(-50%, -50%); // выравнивание по центру
+  box-shadow: 1px 2px 20px #f3f3f3;
+  border: 1px solid #f4f6f8;
+  border-radius: 10px;
+  font-size: 14px;
+
+  &__sidebar {
+    padding: 60px 20px;
+    width: 200px;
+    height: calc(100% - 120px); // sidebar на всю высоту todo
+    border-right: 1px solid #f1f1f1;
+    background-color: #f4f6f8;
+  }
+
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+    overflow: auto; /* создается скролл для списка задач */
+  }
+}
+
+.field {
+  padding: 8px 11px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: "Lato";
+  font-size: 14px;
+
+  &:focus {
+    border-color: #dbdbdb;
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  background: #4dd599;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+  font-family: "Lato";
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s linear;
+
+  &:hover {
+    background: darken(#4dd599, 8%);
+  }
+
+  &:active {
+    background: darken(#4dd599, 15%);
+  }
+
+  &:disabled {
+    /* для неактивного состояния кнопки */
+    background: #d8d8d8;
+    cursor: default;
+  }
+
+  &--gray {
+    background: #f4f6f8;
+    color: #9c9c9c;
+    transition: background 0.2s linear;
+
+    &:hover {
+      background: darken(#f4f6f8, 3%);
+    }
+
+    &:active {
+      background: darken(#f4f6f8, 7%);
+    }
+  }
+}
